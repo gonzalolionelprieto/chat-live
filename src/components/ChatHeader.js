@@ -1,10 +1,11 @@
 import React from "react";
+import ChatUserNameInput from "./ChatUserNameInput";
 
-function ChatHeader() {
+function ChatHeader({ username, setUsername }) {
   return (
     <div className="flex justify-between items-center p-2 border-b">
-      <h1 className="text-lg font-bold ">Chat</h1>
-     
+      <h1 className="text-gray-100 text-lg font-bold ">Username :</h1>
+      <ChatUserNameInput username={username} setUsername={setUsername} />
     </div>
   );
 }

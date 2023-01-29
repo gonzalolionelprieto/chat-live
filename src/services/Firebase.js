@@ -24,17 +24,22 @@ export const getMessages = (callback) => {
     .on('value', callback);
 };
 
-export const sendMessage = (text,username) => {
+function formatTime(timestamp) {
+  let date = new Date(timestamp);
+  return date.toLocaleTimeString();
+}
+
+
+export const sendMessage = (text,userName) => {
   firebase
     .database()
     .ref('messages')
-    .push({ text});
+    .push({  
+      userName: userName,
+      message: text,
+      timestamp:  Date.now(),
+      time: formatTime(Date.now())  }
+      );
 };
 
 
-export const getUsers = (callback) => {
-  firebase
-    .database()
-    .ref('users')
-    .on('value', callback);
-};
