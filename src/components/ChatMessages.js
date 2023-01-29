@@ -4,7 +4,7 @@ function ChatMessages(props) {
   const currentUsername = props.userName;
 
   if (!props.messages || props.messages.length === 0) {
-    return <p>No hay mensajes</p>;
+    return <p> 0 messages</p>;
   }
 
   return (
