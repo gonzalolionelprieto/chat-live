@@ -8,18 +8,20 @@ function ChatMessages(props) {
   }
 
   return (
-    <div className="w-4/5 h-96 overflow-y-scroll mx-auto my-3">
+    <div className="w-4/5 max-w-lg h-96 overflow-y-auto mx-auto my-3">
       {Object.values(props.messages).map((messages, index) => (
         <div key={index} className="my-5 ">
           {currentUsername === messages.userName ? (
             <div className=" flex justify-end bg-wsp-green   rounded-l-md rounded-b-md rounded-tl-md mr-1 ml-3">
               <div className="flex  justify-between items-center w-full ">
-                <p className="text-start text-gray-100 font-small text-lg pl-2">
+                <p className="text-start text-gray-100 font-small text-lg pl-2 break-all ">
                   {messages.message}
                 </p>
-                <p className="text-gray-100 font-small text-sm pt-5 pb-1 pr-2">
-                  {messages.time}
-                </p>
+                <div className="flex justify-end items-end h-full">
+                  <p className="text-gray-100 font-small text-sm pt-5 pb-1 pr-2">
+                    {messages.time}
+                  </p>
+                </div>
               </div>
             </div>
           ) : (

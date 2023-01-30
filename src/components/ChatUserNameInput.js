@@ -19,10 +19,10 @@ export default function ChatUserNameInput({ username, setUsername }) {
             onChange={handleUsernameChange}
           />
 
-          <button onClick={() => setUsername(name)}>Send</button>
+          <button className="bg-wsp-green text-white rounded-lg mx-2 p-2 px-3" onClick={() => setUsername(name)}>Ok</button>
         </div>
       ) : (
-        <h4 className="text-gray-100 text-lg font-bold uppercase">{username}</h4>
+        <h4 className="text-gray-100 text-lg text-left ">{username}</h4>
       )}
     </>
   );

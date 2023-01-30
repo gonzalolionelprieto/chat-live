@@ -10,9 +10,11 @@ import ChatMessages from "./ChatMessages";
 import ChatUserList from "./ChatUserList";
 
 function Chat() {
-  const [messages, setMessages] = useState(["hola"]);
+  const [messages, setMessages] = useState([""]);
 
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(
+    localStorage.getItem("username") || ""
+  );
 
   useEffect(() => {
     initializeFirebase();
@@ -20,6 +22,11 @@ function Chat() {
       setMessages(snapshot.val());
     });
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("username", username);
+    console.log(username);
+  }, [username]);
 
   const handleSendMessage = (text, userName, time) => {
     sendMessage(text, userName, time);
@@ -31,6 +38,7 @@ function Chat() {
         <ChatHeader users={4} username={username} setUsername={setUsername} />
         <div className="flex flex-col ">
           <ChatUserList users={4} />
+
           <ChatMessages
             className="grow"
             messages={messages}
