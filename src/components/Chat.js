@@ -16,6 +16,8 @@ function Chat() {
     localStorage.getItem("username") || ""
   );
 
+
+
   useEffect(() => {
     initializeFirebase();
     getMessages((snapshot) => {
@@ -32,6 +34,7 @@ function Chat() {
     sendMessage(text, userName, time);
   };
 
+ 
   return (
     <div className=" flex flex-column  justify-center items-center">
       <div className="bg-wsp-black p-4 rounded-lg mx-auto h-full">
@@ -43,12 +46,15 @@ function Chat() {
             className="grow"
             messages={messages}
             userName={username}
+            
           />
         </div>
         <ChatInput
           onSend={handleSendMessage}
           username={username}
           setUsername={setUsername}
+         
+         
         />
       </div>
     </div>
